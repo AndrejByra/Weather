@@ -9,7 +9,23 @@ $(document).ready(function(){
 				urllink=urllink+','+code;
 			urllink=urllink+','+code;
 			urllink=urllink+'&APPID=f7fabd71df106f511e278922bc54e16a';
+
+			$.ajax(
+			{
+				url: urlLink,
+				data: {format: 'json'},
+				error: function()
+				{
+					//chyba
+				},
+				dataType: 'json',
+				success: function(data)
+				{
+					console.log("temp: "+data.main.temp);
+					console.log("desc: "+data.weather[0].description);
+				},
+				type: 'GET'
+			});
 		}
-}
-}
+	});
 });
