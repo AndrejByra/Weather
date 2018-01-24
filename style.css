@@ -1,0 +1,65 @@
+body{
+	background-color: grey;
+}
+
+
+
+#table{
+	
+background-color: #222629;
+color: #86C232;
+border:2px solid #86C232;
+font-family: "Comic Sans MS", cursive, sans-serif;
+opacity: 0.85;
+}
+#entercode{
+
+}
+#entercity{
+
+}
+
+input[type=text]{
+    		
+   padding: 8px 12px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #61892F;
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    
+    	}
+
+    	#get {
+ 
+  color: white;
+  font-size: 11px;
+  display: inline-block;
+    margin-left: 50%;
+    margin-top: 10%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  overflow: hidden;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  padding: 0.4em 0.8em;
+  font-size: 1.8em;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  border: 8px solid #61892F;
+  color: #61892F;
+  background: none;
+  
+}
+#get:hover {
+  background-color: #61892F;
+  color: #86C232;
+  border: 8px solid #86C232;
+
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#span{
+	font-size: 25px;
+}  	
