@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    $("#flip").click(function(){
+        $("#table").slideToggle("slow");
+    });
+});
+
+$(document).ready(function(){
 	$("#get").click(function(){
 		var city=$("#entercity").val();
 		var code=$("#entercode").val();
@@ -23,9 +29,70 @@ $(document).ready(function(){
 				{
 					console.log("temp: "+data.main.temp);
 					console.log("desc: "+data.weather[0].description);
+
+					 $('#mainTable').empty();
+                var table=$('<table/>');
+                var tr=getTr('City:', city);
+                table.append(tr);
+                $('#table').append(table);
+                
+                var tr=getTr('Country:', $('#entercity').val());
+                table.append(tr);
+                
+                var tr=getTr('Temperature:', parseFloat(data.main.temp-273.15).toFixed(1)+" ℃");
+                table.append(tr);
+                
+                var tr=getTr('Humidity:', data.main.humidity+" %");
+                table.append(tr);
+                
+                var tr=getTr('Description:', data.weather[0].description);
+                table.append(tr);
+                
+                var tr=getTr('Pressure:', data.main.pressure+' hPa');
+                table.append(tr);
+                
+                if($("#details").is(":checked") == true){
+                    
+                    
+                    var tr=getTr('Sunrise:', data.sys.sunrise);
+                    table.append(tr);
+                    
+                    var tr=getTr('Sunset:', data.sys.sunset);
+                    table.append(tr);
+                    
+                    var tr=getTr('Wind:', data.wind.speed+' m/s');
+                    table.append(tr); 
+                    
+                    var tr=getTr('Min temperature:', parseFloat(data.main.temp_min-273.15).toFixed(1)+" ℃");
+                    table.append(tr);
+                    
+                    var tr=getTr('Max temperature:', parseFloat(data.main.temp_max-273.15).toFixed(1)+" ℃");
+                    table.append(tr);
+                    
+                    var tr=getTr('Min temperature:', data.visibility);
+                    table.append(tr);
+                };
+
+
 				},
 				type: 'GET'
 			});
 		}
 	});
+	function getTr(data1,data2){
+	
+		var tr=$('<tr/>');
+        var td1=$('<td/>');
+        $(td1).append(data1);
+        var td2=$('<td/>');
+        $(td2).append(data2);
+        tr.append(td1);
+        tr.append(td2); 
+					
+					return tr;
+
+	}
 });
+
+
+
