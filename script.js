@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#flip").click(function(){
-        $(".table1").slideToggle("slow");
+        $("#table").slideToggle("slow");
     });
 });
 
@@ -70,6 +70,9 @@ $(document).ready(function(){
                     table.append(tr);
                     
                     var tr=getTr('Visibility:', data.visibility+" m");
+                    table.append(tr);
+
+                    var tr=getTr('GoogleMaps:','<a href=\"http://google.com/maps/search/?api=1&query='+data.coord.lat+","+data.coord.lon+"\"target=\"_blank\">"+data.name+"</a>");
                     table.append(tr);
                 };
 
