@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#flip").click(function(){
-        $("#table").slideToggle("slow");
+        $(".table1").slideToggle("slow");
     });
 });
 
@@ -30,13 +30,13 @@ $(document).ready(function(){
 					console.log("temp: "+data.main.temp);
 					console.log("desc: "+data.weather[0].description);
 
-					 $('#mainTable').empty();
+					 $('#datadetails').empty();
                 var table=$('<table/>');
                 var tr=getTr('City:', city);
                 table.append(tr);
-                $('#table').append(table);
+                $('#datadetails').append(table);
                 
-                var tr=getTr('Country:', $('#entercity').val());
+                var tr=getTr('Country:', data.sys.country);
                 table.append(tr);
                 
                 var tr=getTr('Temperature:', parseFloat(data.main.temp-273.15).toFixed(1)+" ℃");
@@ -54,11 +54,11 @@ $(document).ready(function(){
                 if($("#details").is(":checked") == true){
                     
                     
-                    var tr=getTr('Sunrise:', data.sys.sunrise);
-                    table.append(tr);
+                 	var tr=getTr('Sunrise:', new Date(data.sys.sunrise*1000).getHours()+':'+new Date(data.sys.sunrise*1000).getMinutes());
+                    	table.append(tr);
                     
-                    var tr=getTr('Sunset:', data.sys.sunset);
-                    table.append(tr);
+                    var	tr=getTr('Sunset:', new Date(data.sys.sunset*1000).getHours()+':'+new Date(data.sys.sunset*1000).getMinutes());
+                    	table.append(tr);
                     
                     var tr=getTr('Wind:', data.wind.speed+' m/s');
                     table.append(tr); 
@@ -69,7 +69,7 @@ $(document).ready(function(){
                     var tr=getTr('Max temperature:', parseFloat(data.main.temp_max-273.15).toFixed(1)+" ℃");
                     table.append(tr);
                     
-                    var tr=getTr('Min temperature:', data.visibility);
+                    var tr=getTr('Visibility:', data.visibility+" m");
                     table.append(tr);
                 };
 
