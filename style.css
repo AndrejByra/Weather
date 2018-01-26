@@ -58,3 +58,12 @@ input[type=text]:focus {
     opacity: 0.5;
 }
 
+#datadetails tr:nth-child(even) {background: #CB4545}
+#datadetails tr:nth-child(odd) {background: #E07070}
+
+#datadetails{
+
+  
+    display: none;
+}
+
